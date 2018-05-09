@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css?family=Bungee+Inline|Montserrat:300,300i,400,400i,700,700i");
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #0b152b;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: white;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.links {
+  text-align: center;
+  a {
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #7db217;
+    box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.5),
+      0 2px 4px 0 rgba(0, 0, 0, 0.5), inset 0 1px 3px 0 rgba(255, 255, 255, 0.5);
+    font-size: 1.1em;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #0b152b;
+
+    &:hover {
+      background-color: #bcff3b;
+      color: #cc381b;
+      padding: 5px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px 0 rgba(255, 255, 255, 0.5),
+        0 2px 4px 0 rgba(0, 0, 0, 0.5),
+        inset 0 1px 3px 0 rgba(255, 255, 255, 0.5);
+      font-size: 1.1em;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+    }
+  }
+}
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  h2 {
+    margin-bottom: 50px;
+  }
+  & > * {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  input {
+    border-radius: 8px;
+    background-color: #d8d8d8;
+    border: solid 1px #979797;
+  }
+
+  button {
+    color: #bcff3b;
+  }
+}

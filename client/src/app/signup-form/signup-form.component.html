@@ -1,0 +1,18 @@
+<div class="main">
+
+    <form>
+      <h2> Signup </h2>
+      <input type="text" [(ngModel)]="username" name="username" placeholder="Username" />
+      <br>
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Password" />
+      <br>
+      <label for="date">Birthdate</label>
+      <input id="date" type="date" name="birthdate" [(ngModel)]="birthdate">
+      <div>
+        <button (click)="signup()"> Get enrolled
+        </button>
+      </div>
+    </form>
+  </div>
+  
+  <p class="error"> {{ error }} </p>

@@ -77,6 +77,7 @@ router.get("/logout", (req, res) => {
 
 router.get("/zombieAlert", (req,res) => {
   console.log("zombieAlert!!");
+  return res.status(200).json({message:"Movement detected"});
 })
 
 module.exports = router;

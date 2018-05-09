@@ -8,9 +8,7 @@ import { SessionService } from '../services/session.service';
 })
 export class NewShopComponent implements OnInit {
   name: String;
-  owner: any;
   constructor(private sessionService: SessionService) { 
-    this.owner = sessionService.user;
   }
 
   ngOnInit() {
@@ -18,7 +16,7 @@ export class NewShopComponent implements OnInit {
   createShop(){
     const shop = {
       name: this.name,
-      owner: this.owner
+      owner: this.sessionService.user
     }
     //servicio creador de shops
   }

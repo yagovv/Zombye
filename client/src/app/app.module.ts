@@ -13,6 +13,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { AgePipe } from './pipes/age.pipe';
 import { NewShopComponent } from './newShop/newShop.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { CampsComponent } from './camps/camps.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     SignupFormComponent,
     AgePipe,
     NewShopComponent,
-    NavbarComponent
+    NavbarComponent,
+    CampsComponent
 ],
   imports: [
     BrowserModule,

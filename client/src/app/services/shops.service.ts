@@ -6,15 +6,16 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class ShopsService {
   BASE_URL: string = environment.BASEURL;
+  options: any = { withCredentials:true };
 
   constructor(private http: Http) {}
-  getList(id) {
-    return this.http.get(`${this.BASE_URL}/api/shops/${id}`).map(res => res.json());
+  getList() {
+    return this.http.get(`${this.BASE_URL}/api/shops/list`, this.options).map(res => res.json());
   }
 
   get(id) {
     return this.http
-      .get(`${this.BASE_URL}/api/camps/${id}`)
+      .get(`${this.BASE_URL}/api/shops/${id}`)
       .map(res => res.json());
   }
 

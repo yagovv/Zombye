@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+<div class="main">
+  <ul *ngIf="shops">
+    <li *ngFor="let shop of shops" class="shop-card">
+      <h3>
+        {{ shop.name }}
+        <!-- <small> {{shop.camp}}</small> -->
+      </h3>
+      <a [routerLink]="['/shopDetail', shop._id]"> => ENTER </a>
+    </li>
+  </ul>
+
+</div>

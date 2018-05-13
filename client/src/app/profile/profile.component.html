@@ -1,13 +1,12 @@
-
+<app-navbar></app-navbar>
 <div class="main" *ngIf="sessionService.user">
-    <app-navbar></app-navbar>
   <div class="header">
     <h3>{{sessionService.user.username}}</h3>
     <h5>Reputation: {{sessionService.user.reputation}}</h5>
   </div>
   <div class="wrapper">
     <p>Balance:
-      <span>{{sessionService.user.balance}}</span>
+      <span>{{sessionService.user.balance}} 🧠</span>
     </p>
     <!-- <p>Trades:
       <span>{{ sessionService.user.trades}}</span>

@@ -14,7 +14,14 @@ import { AgePipe } from './pipes/age.pipe';
 import { NewShopComponent } from './newShop/newShop.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CampsComponent } from './camps/camps.component';
-
+import { AgmCoreModule } from '@agm/core';
+import { CampsService } from './services/camps.service';
+import { MapComponent } from './map/map.component';
+import { ShopsComponent } from './shops/shops.component';
+import { ShopsService } from './services/shops.service';
+import { ShopDetailComponent } from './shopDetail/shopDetail.component';
+import { NewItemComponent } from './newItem/newItem.component';
+import { ItemsService } from './services/items.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,15 +32,22 @@ import { CampsComponent } from './camps/camps.component';
     AgePipe,
     NewShopComponent,
     NavbarComponent,
-    CampsComponent
+    CampsComponent,
+    MapComponent,
+    ShopsComponent,
+    ShopDetailComponent,
+    NewItemComponent
 ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDkHh-A_S8smtGLN-OBxspNSz0ogAsDdv4'
+    })
   ],
-  providers: [SessionService],
+  providers: [SessionService, CampsService, ShopsService, ItemsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

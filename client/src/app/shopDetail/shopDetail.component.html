@@ -1,0 +1,13 @@
+<div *ngIf="shop" class="main">
+  <h3>{{shop.name}}</h3>
+  <ul class="shops-items-list">
+    <li *ngFor="let item of shop.items">
+      <h5>{{item.name}}</h5>
+      <h4>{{item.price}} 🧠</h4>
+      <p>{{item.info}}</p>
+    </li>
+    <li *ngIf="shop.owner == sessionService.user._id">
+      <a [routerLink]="['newItem']">Add item +</a>
+    </li>
+  </ul>
+</div>

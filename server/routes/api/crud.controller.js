@@ -21,11 +21,11 @@ const simpleCrud = Model => {
   });
 
   // Retrive DETAIL
-  router.get("/:id", (req, res, next) => {
-    Model.findById(req.params.id)
-      .then(object => res.json(object))
-      .catch(e => next(e));
-  });
+  // router.get("/:id", (req, res, next) => {
+  //   Model.findById(req.params.id)
+  //     .then(object => res.json(object))
+  //     .catch(e => next(e));
+  // });
 
   // Edit DETAIL
   router.put("/:id", (req, res, next) => {

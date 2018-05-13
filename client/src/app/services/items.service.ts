@@ -13,14 +13,19 @@ export class ItemsService {
       .get(`${this.BASE_URL}/api/items/${id}`)
       .map(res => res.json());
   }
-  create(item, shopId){
+  getShopItems(shopId) {
     return this.http
-      .post(`${this.BASE_URL}/api/items/newItem`, item, shopId)
+      .get(`${this.BASE_URL}/api/items/shop/${shopId}`)
+      .map(res => res.json());
+  }
+  create(item){
+    return this.http
+      .post(`${this.BASE_URL}/api/items`, item)
       .map(res => res.json());
   }
   edit(item) {
     return this.http
-      .put(`${this.BASE_URL}/api/items/${item.id}`, item)
+      .put(`${this.BASE_URL}/api/items/${item._id}`, item)
       .map(res => res.json());
   }
 

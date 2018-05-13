@@ -8,6 +8,7 @@ import { MapComponent } from './map/map.component';
 import { ShopsComponent } from "./shops/shops.component";
 import { ShopDetailComponent } from './shopDetail/shopDetail.component';
 import { NewItemComponent } from "./newItem/newItem.component";
+import { EditItemComponent } from './editItem/editItem.component';
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -18,6 +19,7 @@ export const routes: Routes = [
   { path: "shops", component: ShopsComponent },
   { path: "shopDetail/:id", component: ShopDetailComponent},
   { path: "shopDetail/:id/newItem", component: NewItemComponent},
+  { path: "shopDetail/:id/editItem/:itemId", component: EditItemComponent},
   { path: "camps", component: CampsComponent },  
   { path: "**", redirectTo: "" }
 ];

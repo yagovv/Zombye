@@ -1,8 +1,9 @@
-<div *ngIf="shop" class="main">
+<app-navbar></app-navbar>
+<div *ngIf="shop && sessionService.user" class="main">
   <h3>{{shop.name}}</h3>
   <ul class="shops-items-list">
-    <li *ngFor="let item of shop.items">
-      <h5>{{item.name}}</h5>
+    <li *ngFor="let item of items">
+      <h5>{{item.name}} <a [routerLink]="['editItem', item._id]" *ngIf="shop.owner == sessionService.user._id">Edit</a></h5>
       <h4>{{item.price}} 🧠</h4>
       <p>{{item.info}}</p>
     </li>

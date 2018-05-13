@@ -9,14 +9,10 @@ router.get("/:id", (req, res, next) => {
     .then(object => res.json(object))
     .catch(e => next(e));
 });
-router.post("/newItem", (req, res, next) => {
-  const obj = _.pick(req.body.item, fields);
-  Item.create(obj)
-    .then(object => {
-      // Shop.findByIdAndUpdate(req.body.shopId, )
-      res.json(object);
-    })
-    .catch(e => next(e));
 
+router.get("/shop/:id", (req, res, next) => {
+  Item.find({shop: req.params.id})
+    .then(object => res.json(object))
+    .catch(e => next(e));
 });
 module.exports = router;

@@ -19,13 +19,14 @@ export class NewItemComponent implements OnInit {
 
   ngOnInit() {}
   createItem() {
-    let item = {
+    let item:any = {
       name: this.name,
       info: this.info,
       price: this.price
     };
     this.route.params.subscribe(params => {
-      this.itemsService.create(item, params.id).subscribe();
+      item.shop = params.id;
+      this.itemsService.create(item).subscribe();
       this.router.navigate([`/shopDetail/${params.id}`]);
     });
   }

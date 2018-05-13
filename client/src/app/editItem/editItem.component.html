@@ -1,0 +1,9 @@
+<div *ngIf="item" class="main">
+  <label for="name">Name</label>
+  <input type="text" [(ngModel)]="item.name">
+  <label for="description">Description</label>
+  <textarea name="description" cols="30" rows="10" [(ngModel)]="item.info"></textarea>
+  <label for="price">Price</label>
+  <input type="number" [(ngModel)]="item.price">
+  <button (click)="saveItem()">Save</button>
+</div>

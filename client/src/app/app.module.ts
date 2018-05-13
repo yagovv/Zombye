@@ -22,6 +22,7 @@ import { ShopsService } from './services/shops.service';
 import { ShopDetailComponent } from './shopDetail/shopDetail.component';
 import { NewItemComponent } from './newItem/newItem.component';
 import { ItemsService } from './services/items.service';
+import { EditItemComponent } from './editItem/editItem.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { ItemsService } from './services/items.service';
     MapComponent,
     ShopsComponent,
     ShopDetailComponent,
-    NewItemComponent
+    NewItemComponent,
+    EditItemComponent
 ],
   imports: [
     BrowserModule,

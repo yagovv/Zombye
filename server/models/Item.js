@@ -4,7 +4,8 @@ const Schema   = mongoose.Schema;
 const itemSchema = new Schema({
   name: String,
   info: String,
-  price: Number
+  price: Number,
+  shop: { type: Schema.Types.ObjectId, ref: "Shop" }
 }, {
   timestamps: {
     createdAt: 'created_at',

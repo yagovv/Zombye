@@ -3,7 +3,6 @@ const Schema   = mongoose.Schema;
 
 const shopSchema = new Schema({
   name: String,
-  items: [{ type: Schema.Types.ObjectId, ref: "Item" }],
   owner: { type: Schema.Types.ObjectId, ref: "User" }
 }, {
   timestamps: {

@@ -12,16 +12,16 @@ export class ShopsService {
   getList() {
     return this.http.get(`${this.BASE_URL}/api/shops/list`, this.options).map(res => res.json());
   }
-
+  
   get(id) {
     return this.http
       .get(`${this.BASE_URL}/api/shops/${id}`)
       .map(res => res.json());
   }
 
-  edit(dish) {
+  edit(shop) {
     return this.http
-      .put(`${this.BASE_URL}/api/camps/${dish.id}`, dish)
+      .put(`${this.BASE_URL}/api/camps/${shop.id}`, shop)
       .map(res => res.json());
   }
 

@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+<div *ngIf="camp" class="main">
+  <h2>{{camp.name}}</h2>
+  <h4>Chief of the camp: {{camp.chief.username}}</h4>
+  <h5>Available living spots: {{camp.livingSpots}}</h5>
+  <h5>Population: {{camp.population}}</h5>
+  <h5>🛍️ Shops️</h5>
+  <ul *ngIf="shops">
+    <li *ngFor="let shop of shops">
+      <h5>{{shop.name}} <a [routerLink]="['/shopDetail', shop._id]">➡️ Enter</a></h5>
+    </li>
+  </ul>
+</div>

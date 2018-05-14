@@ -75,8 +75,8 @@ router.get("/logout", (req, res) => {
   }
 });
 
-router.get("/zombieAlert", (req,res) => {
-  console.log("zombieAlert!!");
+router.get("/zombieAlert/:id", (req,res) => {
+  console.log("zombieAlert!!", req.params.id);
   return res.status(200).json({message:"Movement detected"});
 })
 

@@ -8,11 +8,9 @@
     <p>Balance:
       <span>{{sessionService.user.balance}} 🧠</span>
     </p>
-    <!-- <p>Trades:
-      <span>{{ sessionService.user.trades}}</span>
-    </p> -->
     <p>Age:
       <span>{{sessionService.user.birthdate|age}}</span>
     </p>
+    <a class="btn btn-warning" [routerLink]="['/chats']"> Chats </a>
   </div>
 </div>

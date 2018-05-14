@@ -1,13 +1,19 @@
 <app-navbar></app-navbar>
 <div *ngIf="shop && sessionService.user" class="main">
   <h3>{{shop.name}}</h3>
+  <h4>Owner: {{shop.owner.username}}</h4>
   <ul class="shops-items-list">
     <li *ngFor="let item of items">
-      <h5>{{item.name}} <a [routerLink]="['editItem', item._id]" *ngIf="shop.owner == sessionService.user._id">Edit</a></h5>
+      <h5>{{item.name}}
+        <button (click)="buyItem(item)" *ngIf="shop.owner._id != sessionService.user._id && item.price <= sessionService.user.balance">🛒 BUY</button>
+        <button *ngIf="shop.owner._id != sessionService.user._id && item.price > sessionService.user.balance">🚫 Not Enough Balance</button>
+        <a [routerLink]="['editItem', item._id]" *ngIf="shop.owner._id == sessionService.user._id">Edit</a>
+      </h5>
       <h4>{{item.price}} 🧠</h4>
       <p>{{item.info}}</p>
+      <button *ngIf="shop.owner._id == sessionService.user._id" (click)="deleteItem(item._id)">🗑️</button>
     </li>
-    <li *ngIf="shop.owner == sessionService.user._id">
+    <li *ngIf="shop.owner._id == sessionService.user._id">
       <a [routerLink]="['newItem']">Add item +</a>
     </li>
   </ul>

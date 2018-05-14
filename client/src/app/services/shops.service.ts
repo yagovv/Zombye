@@ -12,7 +12,9 @@ export class ShopsService {
   getList() {
     return this.http.get(`${this.BASE_URL}/api/shops/list`, this.options).map(res => res.json());
   }
-  
+  getCampShops(campId){
+    return this.http.get(`${this.BASE_URL}/api/shops/list/camp/${campId}`, this.options).map(res => res.json());
+  }
   get(id) {
     return this.http
       .get(`${this.BASE_URL}/api/shops/${id}`)

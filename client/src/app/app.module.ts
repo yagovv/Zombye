@@ -1,28 +1,39 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { routes } from './routes.routing';
-import { AppComponent } from './app.component';
-import { Http, HttpModule } from '@angular/http';
-import { LoginFormComponent } from './login-form/login-form.component';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
+import { Http, HttpModule } from "@angular/http";
+import { FormsModule } from "@angular/forms";
+import { AgmCoreModule } from "@agm/core";
+
+import { AppComponent } from "./app.component";
+import { LoginFormComponent } from "./login-form/login-form.component";
+import { HomeComponent } from "./home/home.component";
+import { ProfileComponent } from "./profile/profile.component";
+import { SignupFormComponent } from "./signup-form/signup-form.component";
+import { ShopsComponent } from "./shops/shops.component";
+import { MapComponent } from "./map/map.component";
+import { NewShopComponent } from "./newShop/newShop.component";
+import { NavbarComponent } from "./shared/navbar/navbar.component";
+import { CampsComponent } from "./camps/camps.component";
+import { ShopDetailComponent } from "./shopDetail/shopDetail.component";
+import { NewItemComponent } from "./newItem/newItem.component";
+import { EditItemComponent } from "./editItem/editItem.component";
+import { CampDetailComponent } from "./campDetail/campDetail.component";
+
 import { SessionService } from "./services/session.service";
-import { FormsModule } from '@angular/forms';
-import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { SignupFormComponent } from './signup-form/signup-form.component';
-import { AgePipe } from './pipes/age.pipe';
-import { NewShopComponent } from './newShop/newShop.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { CampsComponent } from './camps/camps.component';
-import { AgmCoreModule } from '@agm/core';
-import { CampsService } from './services/camps.service';
-import { MapComponent } from './map/map.component';
-import { ShopsComponent } from './shops/shops.component';
-import { ShopsService } from './services/shops.service';
-import { ShopDetailComponent } from './shopDetail/shopDetail.component';
-import { NewItemComponent } from './newItem/newItem.component';
-import { ItemsService } from './services/items.service';
-import { EditItemComponent } from './editItem/editItem.component';
+import { GeoLocationService } from "./services/geolocation.service";
+import { CampsService } from "./services/camps.service";
+import { ShopsService } from "./services/shops.service";
+import { ItemsService } from "./services/items.service";
+import { routes } from "./routes.routing";
+import { AgePipe } from "./pipes/age.pipe";
+import { PurchasesService } from "./services/purchases.service";
+import { MessagesComponent } from './messages/messages.component';
+import { MessagesService } from "./services/messages.service";
+import { ChatService } from './services/chat.service';
+import { ChatsComponent } from './chats/chats.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +49,10 @@ import { EditItemComponent } from './editItem/editItem.component';
     ShopsComponent,
     ShopDetailComponent,
     NewItemComponent,
-    EditItemComponent
+    EditItemComponent,
+    CampDetailComponent,
+    MessagesComponent,
+    ChatsComponent
 ],
   imports: [
     BrowserModule,
@@ -46,10 +60,19 @@ import { EditItemComponent } from './editItem/editItem.component';
     FormsModule,
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDkHh-A_S8smtGLN-OBxspNSz0ogAsDdv4'
+      apiKey: "AIzaSyDkHh-A_S8smtGLN-OBxspNSz0ogAsDdv4"
     })
   ],
-  providers: [SessionService, CampsService, ShopsService, ItemsService],
+  providers: [
+    SessionService,
+    CampsService,
+    ShopsService,
+    ItemsService,
+    GeoLocationService,
+    PurchasesService,
+    MessagesService,
+    ChatService
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

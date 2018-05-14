@@ -1,0 +1,9 @@
+<app-navbar></app-navbar>
+<div *ngIf="sessionService.user" class="main">
+  <ul class="messages-list">
+    <li *ngFor="let message of messages">
+      <h4>Subject: {{message.subject}}</h4>
+      <p>{{message.content}}</p>
+    </li>
+  </ul>
+</div>

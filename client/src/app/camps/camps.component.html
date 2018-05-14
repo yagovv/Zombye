@@ -2,15 +2,8 @@
 <div *ngIf="camps" class="main">
   <ul>
     <li *ngFor="let camp of camps">
-      <h3>{{ camp.name }}</h3>
-      <h4>Chief: {{ camp.chief.username }}</h4>
-      <h5>Population: {{ camp.population }}</h5>
+      <h3>{{ camp.name }} <a [routerLink]="['/campDetail', camp._id]"> 🏠 Enter</a></h3>
       <h5>Living spots: {{ camp.livingSpots }}</h5>
-      <ul>
-        <li *ngFor="let shop of camp.shops">
-          <p>{{shop.name}}</p>
-        </li>
-      </ul>
     </li>
   </ul>
 </div>

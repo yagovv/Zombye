@@ -4,11 +4,9 @@ const User = require("../../models/User");
 const router = crud(Camp);
 
 router.get("/list", (req, res) => {
-  Camp.find()
-    .populate("chief")
-    .then(camps => {
-      return res.status(200).json(camps)
-    });
+  Camp.find().then(camps => {
+    return res.status(200).json(camps);
+  });
 });
 
 router.post("/closests", (req, res) => {
@@ -42,5 +40,11 @@ router.post("/closest", (req, res) => {
   }).then(camp => {
     return res.json(camp);
   });
+});
+router.get("/:id", (req, res, next) => {
+  Camp.findById(req.params.id)
+    .populate("chief")
+    .then(object => res.json(object))
+    .catch(e => next(e));
 });
 module.exports = router;

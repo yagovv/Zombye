@@ -1,4 +1,43 @@
-agm-map {
-  height: 80vh;
+.camp-card {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 100%;
+  padding: 20px;
+  overflow: hidden;
+  border: none;
+  color: rgba(255, 255, 255, 1);
+  text-align: left;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: -webkit-linear-gradient(
+    -90deg,
+    rgba(130, 130, 130, 1) 0,
+    rgba(76, 76, 76, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(130, 130, 130, 1) 0,
+    rgba(76, 76, 76, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(130, 130, 130, 1) 0,
+    rgba(76, 76, 76, 1) 100%
+  );
+  background-position: 50% 50%;
+  -webkit-background-origin: padding-box;
+  background-origin: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-size: auto auto;
+  background-size: auto auto;
+  -webkit-box-shadow: 1px 1px 2px 0 rgba(30, 30, 30, 0.3);
+  box-shadow: 1px 1px 2px 0 rgba(30, 30, 30, 0.3);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  list-style-type: none;
+}
+ul {
   width: 100%;
 }
+

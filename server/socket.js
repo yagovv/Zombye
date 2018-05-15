@@ -6,6 +6,6 @@ const socket = (io) => {
           console.log(msg)
           socket.broadcast.emit('chatmessage',msg);
       })
-  });      
+  });     
 }
 module.exports = socket;

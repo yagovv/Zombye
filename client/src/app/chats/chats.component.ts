@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chats.component.scss']
 })
 export class ChatsComponent implements OnInit {
-
+  userSearch = "";
+  users:any;
   constructor() { }
-
+  
   ngOnInit() {
   }
+  searchUser(){
 
+  }
 }

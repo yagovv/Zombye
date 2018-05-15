@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CampsService } from "../services/camps.service";
+import { GeoLocationService } from "../services/geolocation.service";
 
 @Component({
   selector: "app-camps",
@@ -8,10 +9,19 @@ import { CampsService } from "../services/camps.service";
 })
 export class CampsComponent implements OnInit {
   camps: Array<any>;
-  constructor(private campsService: CampsService) {}
+  location: any;
+
+  constructor(
+    private campsService: CampsService,
+    public geolocation: GeoLocationService
+  ) {}
 
   ngOnInit() {
     this.campsService.getList().subscribe(camps => (this.camps = camps));
+    this.geolocation.getLocation().subscribe(location => {
+      console.log(location);
+      this.location = [location.coords.latitude, location.coords.longitude];
+      console.log(this.location);
+    });
   }
-  
 }

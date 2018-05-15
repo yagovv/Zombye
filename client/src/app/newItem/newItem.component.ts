@@ -26,8 +26,10 @@ export class NewItemComponent implements OnInit {
     };
     this.route.params.subscribe(params => {
       item.shop = params.id;
-      this.itemsService.create(item).subscribe();
-      this.router.navigate([`/shopDetail/${params.id}`]);
+      this.itemsService.create(item).subscribe((()=>{
+        this.router.navigate([`/shopDetail/${params.id}`]);
+      }));
+      
     });
   }
 }

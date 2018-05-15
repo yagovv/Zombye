@@ -1,9 +1,9 @@
 <app-navbar></app-navbar>
 <div *ngIf="camps" class="main">
   <ul>
-    <li *ngFor="let camp of camps">
-      <h3>{{ camp.name }} <a [routerLink]="['/campDetail', camp._id]"> 🏠 Enter</a></h3>
-      <h5>Living spots: {{ camp.livingSpots }}</h5>
+    <li class="camp-card" *ngFor="let camp of camps">
+      <h3>{{ camp.name }} <a class="link" [routerLink]="['/campDetail', camp._id]">Enter</a></h3>
+      <h5>Living spots: {{ camp.livingSpots }}  <span *ngIf="location" class="distance-info">{{location | distance: camp.location.coordinates}}</span></h5>
     </li>
   </ul>
 </div>

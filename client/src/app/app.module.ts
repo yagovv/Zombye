@@ -19,19 +19,23 @@ import { ShopDetailComponent } from "./shopDetail/shopDetail.component";
 import { NewItemComponent } from "./newItem/newItem.component";
 import { EditItemComponent } from "./editItem/editItem.component";
 import { CampDetailComponent } from "./campDetail/campDetail.component";
+import { ChatsComponent } from './chats/chats.component';
+import { MessagesComponent } from './messages/messages.component';
 
 import { SessionService } from "./services/session.service";
 import { GeoLocationService } from "./services/geolocation.service";
 import { CampsService } from "./services/camps.service";
 import { ShopsService } from "./services/shops.service";
 import { ItemsService } from "./services/items.service";
-import { routes } from "./routes.routing";
-import { AgePipe } from "./pipes/age.pipe";
+import { UsersService } from "./services/users.service";
 import { PurchasesService } from "./services/purchases.service";
-import { MessagesComponent } from './messages/messages.component';
 import { MessagesService } from "./services/messages.service";
 import { ChatService } from './services/chat.service';
-import { ChatsComponent } from './chats/chats.component';
+
+import { AgePipe } from "./pipes/age.pipe";
+import { DistancePipe } from './pipes/distance.pipe';  
+
+import { routes } from "./routes.routing";
 
 
 @NgModule({
@@ -52,7 +56,8 @@ import { ChatsComponent } from './chats/chats.component';
     EditItemComponent,
     CampDetailComponent,
     MessagesComponent,
-    ChatsComponent
+    ChatsComponent,
+    DistancePipe
 ],
   imports: [
     BrowserModule,
@@ -71,7 +76,8 @@ import { ChatsComponent } from './chats/chats.component';
     GeoLocationService,
     PurchasesService,
     MessagesService,
-    ChatService
+    ChatService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })

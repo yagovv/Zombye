@@ -12,6 +12,7 @@ import { EditItemComponent } from './editItem/editItem.component';
 import { CampDetailComponent } from './campDetail/campDetail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ChatsComponent } from './chats/chats.component';
+import { ChatDetailComponent } from './chatDetail/chatDetail.component';
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -27,6 +28,7 @@ export const routes: Routes = [
   { path: "campDetail/:id", component: CampDetailComponent },
   { path: "messages", component: MessagesComponent },  
   { path: "chats", component: ChatsComponent },
+  { path: "chatDetail/:id", component: ChatDetailComponent },
   { path: "**", redirectTo: "" }
 ];
 

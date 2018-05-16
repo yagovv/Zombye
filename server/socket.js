@@ -7,5 +7,10 @@ const socket = (io) => {
           socket.broadcast.emit('chatmessage',msg);
       })
   });     
+  var nsp = io.of('/chats');
+    nsp.on('connection', function(socket){
+      console.log('someone connected');
+    });
+    nsp.emit('hi', 'everyone!'); 
 }
 module.exports = socket;

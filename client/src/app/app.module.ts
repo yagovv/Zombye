@@ -34,8 +34,12 @@ import { ChatService } from './services/chat.service';
 
 import { AgePipe } from "./pipes/age.pipe";
 import { DistancePipe } from './pipes/distance.pipe';  
+import { FilterPipe } from './pipes/filter.pipe';
 
 import { routes } from "./routes.routing";
+import { ChatDetailComponent } from './chatDetail/chatDetail.component';
+
+import { FileSelectDirective } from "ng2-file-upload";
 
 
 @NgModule({
@@ -57,7 +61,11 @@ import { routes } from "./routes.routing";
     CampDetailComponent,
     MessagesComponent,
     ChatsComponent,
-    DistancePipe
+    ChatDetailComponent,
+    DistancePipe,
+    FilterPipe,
+    ChatDetailComponent,
+    FileSelectDirective
 ],
   imports: [
     BrowserModule,

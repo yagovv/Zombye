@@ -1,3 +1,47 @@
 nav {
-  background-color: #B23820 !important;
+  background: linear-gradient(356deg, #ac3700, #5a1e02);
+  background-size: 400% 400%;
+  -webkit-animation: navbaranim 4s ease infinite;
+  -moz-animation: navbaranim 4s ease infinite;
+  animation: navbaranim 4s ease infinite;
+  @-webkit-keyframes navbaranim {
+    0% {
+      background-position: 48% 0%
+    }
+    50% {
+      background-position: 53% 100%
+    }
+    100% {
+      background-position: 48% 0%
+    }
+  }
+  @-moz-keyframes navbaranim {
+    0% {
+      background-position: 48% 0%
+    }
+    50% {
+      background-position: 53% 100%
+    }
+    100% {
+      background-position: 48% 0%
+    }
+  }
+  @keyframes navbaranim {
+    0% {
+      background-position: 48% 0%
+    }
+    50% {
+      background-position: 53% 100%
+    }
+    100% {
+      background-position: 48% 0%
+    }
+  }
+ 
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
+  color: white;
+}
+.navbar-light .navbar-nav .nav-link{
+  color: white;
 }

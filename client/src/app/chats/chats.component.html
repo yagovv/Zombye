@@ -1,10 +1,13 @@
+<app-navbar></app-navbar>
 <div class="main">
-  <ul class="chat-list">
-    <li class="chat-card" *ngFor="let chat of chats">
-      <h4>{{chat.user}}</h4>
-      <p class="chat-info">{{chat.lastMessage}}</p>
+  <ul *ngIf="chats" class="chat-list">
+    <li  [routerLink]="['/chatDetail', chat._id]" class="chat-card" *ngFor="let chat of chats | filter:sessionService.user:userSearch">
+      <div class="inside">
+        <h4 *ngIf="chat.users[0]._id == sessionService.user._id">{{chat.users[1].username}}</h4>
+        <h4 *ngIf="chat.users[1]._id == sessionService.user._id">{{chat.users[0].username}}</h4>
+        <p class="chat-info">{{chat.history[chat.history.length-1]}}</p>
+      </div>
     </li>
   </ul>
-  <input type="text" [(ngModel)]="userSearch" id="user-search">
-
+  <input type="text" [(ngModel)]="userSearch" id="user-search"> <i class="fas fa-search"></i>
 </div>

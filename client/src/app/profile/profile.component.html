@@ -1,16 +1,20 @@
 <app-navbar></app-navbar>
 <div class="main" *ngIf="sessionService.user">
+  <div class="image-profile">
+    <img [src]="image">
+  </div>
   <div class="header">
     <h3>{{sessionService.user.username}}</h3>
     <h5>Reputation: {{sessionService.user.reputation}}</h5>
   </div>
   <div class="wrapper">
     <p>Balance:
-      <span>{{sessionService.user.balance}} 🧠</span>
+      <span class="info">{{sessionService.user.balance}} 🧠</span>
     </p>
     <p>Age:
-      <span>{{sessionService.user.birthdate|age}}</span>
+      <span class="info">{{sessionService.user.birthdate|age}}</span>
     </p>
-    <a class="btn btn-warning" [routerLink]="['/chats']"> Chats </a>
+    <a class="btn btn-outline-warning" [routerLink]="['/chats']"> Chats </a>
+    <a class="btn btn-outline-warning" [routerLink]="['/survivalGuide']"> Survival Guide </a>
   </div>
 </div>

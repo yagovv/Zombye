@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../../models/User");
 const bcrypt = require("bcrypt");
+const upload = require('../../configs/multer');
 
 const logInPromise = (user, req) =>
   new Promise((resolve, reject) => {
@@ -12,8 +13,10 @@ const logInPromise = (user, req) =>
   });
 
 /* GET home page */
-router.post("/signup", (req, res, next) => {
+router.post("/signup", upload.single('file'), (req, res, next) => {
+  console.log(req.body, req.file);
   const { username, password, birthdate } = req.body;
+  const image = `/images/${req.file.filename}`;
 
   if (!username || !password || !birthdate) {
     res.status(400).json({ message: "Provide username and password and birthdate" });
@@ -30,7 +33,8 @@ router.post("/signup", (req, res, next) => {
       const theUser = new User({
         username,
         password: hashPass,
-        birthdate
+        birthdate, 
+        image
       });
 
       return theUser.save().then(user => logInPromise(user, req));

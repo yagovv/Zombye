@@ -22,6 +22,7 @@ export class SessionService {
 
   handleUser(user?:object){
     this.user = user;
+    this.userEvent.emit(this.user);
     return this.user;
   }
 

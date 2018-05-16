@@ -1,7 +1,0 @@
-<ul class="messages">
-  <li *ngFor="let m of chatService.messages">
-    <div class="message {{m.type}}">{{m.text}}</div>
-  </li>
-</ul>
-<input type="text" [(ngModel)]="textbox"/>
-<button (click)="clickSend()">SEND</button>

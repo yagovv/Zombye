@@ -7,6 +7,7 @@ const userSchema = new Schema(
     password: String,
     email: String,
     birthdate: Date,
+    image: String,
     balance: { type: Number, default: 100 },
     reputation: { type: Number, default: 3 }
   },

@@ -7,21 +7,19 @@ mongoose.connect(process.env.MONGO_URL);
 const camps = [
   {
     name: "Ironhack",
-    population: 45,
+    population: 120,
     chief: "5af1b85a826d180fc7ffc37a",
-    shops: [],
-    livingSpots: 50,
+    livingSpots: 23,
     location: {
       type: "Point",
       coordinates: [40.3925, -3.698]
     }
   },
   {
-    name: "Goiko",
-    population: 12,
+    name: "Embajadores Camp",
+    population: 98,
     chief: "5af18be23b3b00fb56f58919",
-    shops: [],
-    livingSpots: 20,
+    livingSpots: 34,
     location: {
       type: "Point",
       coordinates: [40.405075, -3.703251]

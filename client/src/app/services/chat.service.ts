@@ -34,23 +34,23 @@ export class ChatService {
   }
 
   connect(id, messages) {
-    this.messages = _.sortBy(messages, 'created_at').reverse();
-    if (!this.socket) {
-      this.socket = io(this.url, { query: `id=${id}`});
+    // this.messages = _.sortBy(messages, 'created_at').reverse();
+    // if (!this.socket) {
+    //   this.socket = io(this.url, { query: `id=${id}`});
 
-      this.socket.on('newmessage', (msg) => {
-          this.messages.unshift(msg);
-          this.messageAdded.next(true);
-      });
+    //   this.socket.on('newmessage', (msg) => {
+    //       this.messages.unshift(msg);
+    //       this.messageAdded.next(true);
+    //   });
 
-      this.socket.on('updateroom', (message) => {
-          message['new'] = true;
-          this.messages.unshift(message);
-          this.messageAdded.next(true);
-      });
-    } else {
-      this.socket.connect();
-    }
+    //   this.socket.on('updateroom', (message) => {
+    //       message['new'] = true;
+    //       this.messages.unshift(message);
+    //       this.messageAdded.next(true);
+    //   });
+    // } else {
+    //   this.socket.connect();
+    // }
   }
 
   disconnect() {

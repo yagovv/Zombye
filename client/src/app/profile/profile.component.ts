@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
   constructor(private sessionService: SessionService) {
     this.sessionService.userEvent.subscribe(user => {
       if (user) {
-        this.image = `${environment.BASEURL}/${this.sessionService.user.image}`;
+        this.image = `${environment.BASEURL}${this.sessionService.user.image}`;
       }
     });
   }

@@ -1,26 +1,38 @@
 //EL Truco del almendruco
-
+const Chat = require('./models/Chat');
 const socket = (io) => {
     var sockets = {};
 
     io.on('connection', function (socket) {
         var id = socket.request._query["id"];
         sockets[id] = socket;
+        socket.room = id;
+        socket.join(id);
         console.log('CONNECTED SOCKET', id);
-        
+
 
         socket.on('disconnect', () => {
             delete sockets[id];
-            // if (socket.room) {
-            //     socket.leave(socket.room);
-            // }
+            if (socket.room) {
+                socket.leave(socket.room);
+            }
         });
 
         socket.on('sendmessage', (msg) => {
             if (sockets[id]) {
                 //guardar el mensjae en la base de datos
                 console.log(msg);
-                sockets[id].emit('newmessage', msg);
+                console.log(id);
+                Chat.findByIdAndUpdate(id, {
+                    $push: {
+                        history: msg
+                    }
+                }).then(()=>{
+                    console.log("saved");
+                    socket.broadcast.to(socket.room).emit('newmessage', msg);
+                })
+                // sockets[id].emit('newmessage', msg);
+                
             }
         });
 

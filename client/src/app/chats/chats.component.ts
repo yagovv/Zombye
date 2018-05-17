@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { ChatService } from "../services/chat.service";
 import { SessionService } from "../services/session.service";
 
-
 @Component({
   selector: "app-chats",
   templateUrl: "./chats.component.html",
@@ -16,11 +15,6 @@ export class ChatsComponent implements OnInit {
     private chatService: ChatService,
     private sessionService: SessionService
   ) {
-
-  }
-
-  ngOnInit() {
-
     this.sessionService.isLoggedIn().subscribe(() => {
       this.chatService.getChats().subscribe(chats => {
         console.log(chats);
@@ -28,5 +22,7 @@ export class ChatsComponent implements OnInit {
       });
     });
   }
+
+  ngOnInit() {}
   searchUser() {}
 }

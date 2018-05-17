@@ -20,21 +20,12 @@ export class ChatService {
   //   this.messages = messages;
   // }
   sendMessage(message) {
-    // this.messages.push(message);
+    this.messages.push(message);
     this.socket.emit('sendmessage', message);
   }
 
-  // updateRoom(message) {
-  //   this.messages.push(message);
-  //   this.socket.emit('sendtoroom', message);
-  // }
-
-  // joinRoom(meetupId) {
-  //   this.socket.emit('addtoroom', meetupId);
-  // }
-
   connect(id, messages) {
-    // this.messages = _.sortBy(messages, 'created_at').reverse();
+
     if (!this.socket) {
       this.socket = io(this.BASE_URL, { query: `id=${id}`});
       this.getChat(id).subscribe(chat => {
@@ -42,14 +33,7 @@ export class ChatService {
       });
       this.socket.on('newmessage', (msg) => {
           this.messages.push(msg);
-          // this.messageAdded.next(true);
       });
-
-      // this.socket.on('updateroom', (message) => {
-      //     message['new'] = true;
-      //     this.messages.unshift(message);
-      //     // this.messageAdded.next(true);
-      // });
     } else {
       this.socket.connect();
     }

@@ -18,7 +18,7 @@ export class SessionService {
       if (this.user.zombie) {
         this.router.navigate(["/zombie"]);
       }
-    }, 1000);
+    }, 1500);
     this.isLoggedIn().subscribe();
   }
 

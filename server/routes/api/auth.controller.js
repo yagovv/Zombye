@@ -15,15 +15,23 @@ const logInPromise = (user, req) =>
 /* GET home page */
 router.post("/signup", upload.single('file'), (req, res, next) => {
   console.log(req.body, req.file);
-  const { username, password, birthdate } = req.body;
+  const {
+    username,
+    password,
+    birthdate
+  } = req.body;
   const image = `/images/${req.file.filename}`;
 
   if (!username || !password || !birthdate) {
-    res.status(400).json({ message: "Provide username and password and birthdate" });
+    res.status(400).json({
+      message: "Provide username and password and birthdate"
+    });
     return;
   }
 
-  User.findOne({ username })
+  User.findOne({
+      username
+    })
     .then(user => {
       if (user) throw new Error("The username already exists");
 
@@ -33,25 +41,34 @@ router.post("/signup", upload.single('file'), (req, res, next) => {
       const theUser = new User({
         username,
         password: hashPass,
-        birthdate, 
+        birthdate,
         image
       });
 
       return theUser.save().then(user => logInPromise(user, req));
     })
     .then(user => res.status(200).json(user))
-    .catch(e => res.status(500).json({ message: e.message }));
+    .catch(e => res.status(500).json({
+      message: e.message
+    }));
 });
 
 router.post("/login", (req, res, next) => {
-  const { username, password } = req.body;
+  const {
+    username,
+    password
+  } = req.body;
 
   if (!username || !password) {
-    res.status(400).json({ message: "Provide username and password" });
+    res.status(400).json({
+      message: "Provide username and password"
+    });
     return;
   }
 
-  User.findOne({ username })
+  User.findOne({
+      username
+    })
     .then(user => {
       if (!user) throw new Error("The username does not exist");
       if (!bcrypt.compareSync(password, user.password))
@@ -59,29 +76,53 @@ router.post("/login", (req, res, next) => {
       return logInPromise(user, req);
     })
     .then(user => res.status(200).json(user))
-    .catch(e => res.status(500).json({ message: e.message }));
+    .catch(e => res.status(500).json({
+      message: e.message
+    }));
 });
 
 router.get("/loggedin", (req, res) => {
   if (req.user) {
     return res.status(200).json(req.user);
   } else {
-    return res.status(400).json({ message: "You should loggin first" });
+    return res.status(400).json({
+      message: "You should loggin first"
+    });
   }
 });
 
 router.get("/logout", (req, res) => {
   if (req.user) {
     req.logout();
-    return res.status(200).json({ message: "User logged out" });
+    return res.status(200).json({
+      message: "User logged out"
+    });
   } else {
-    return res.status(400).json({ message: "You should loggin first" });
+    return res.status(400).json({
+      message: "You should loggin first"
+    });
   }
 });
 
-router.get("/zombieAlert/:id", (req,res) => {
+router.get("/zombieAlert/:id", (req, res) => {
   console.log("zombieAlert!!", req.params.id);
-  return res.status(200).json({message:"Movement detected"});
+  User.findByIdAndUpdate(req.params.id, {
+    zombie: true
+  }).then(() => {
+    return res.status(200).json({
+      message: "Movement detected"
+    });
+  })
+});
+router.get("/zombieAlertOff/:id", (req, res) => {
+  console.log("zombieAlertOff!!", req.params.id);
+  User.findByIdAndUpdate(req.params.id, {
+    zombie: false
+  }).then(() => {
+    return res.status(200).json({
+      message: "Movement detected"
+    });
+  })
 })
 
 module.exports = router;

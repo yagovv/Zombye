@@ -13,6 +13,7 @@ import { CampDetailComponent } from './campDetail/campDetail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ChatsComponent } from './chats/chats.component';
 import { ChatDetailComponent } from './chatDetail/chatDetail.component';
+import { ZombieComponent } from './zombie/zombie.component';
 
 export const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -29,6 +30,7 @@ export const routes: Routes = [
   { path: "messages", component: MessagesComponent },  
   { path: "chats", component: ChatsComponent },
   { path: "chatDetail/:id", component: ChatDetailComponent },
+  { path: "zombie", component: ZombieComponent },
   { path: "**", redirectTo: "" }
 ];
 

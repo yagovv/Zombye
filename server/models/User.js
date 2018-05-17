@@ -8,6 +8,7 @@ const userSchema = new Schema(
     email: String,
     birthdate: Date,
     image: String,
+    zombie: {type: Boolean, default: false},
     balance: { type: Number, default: 100 },
     reputation: { type: Number, default: 3 }
   },

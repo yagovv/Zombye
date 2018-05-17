@@ -41,6 +41,7 @@ import { ChatDetailComponent } from './chatDetail/chatDetail.component';
 
 import { FileSelectDirective } from "ng2-file-upload";
 import { ZombieComponent } from './zombie/zombie.component';
+import { GuideComponent } from './guide/guide.component';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { ZombieComponent } from './zombie/zombie.component';
     FilterPipe,
     ChatDetailComponent,
     FileSelectDirective,
-    ZombieComponent
+    ZombieComponent,
+    GuideComponent
 ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
 <div *ngIf="chat" class="main">
   <ul class="messages">
-      <li *ngFor="let m of chat.history">
+      <li *ngFor="let m of chatService.messages">
         <div class="message">{{m}}</div>
       </li>
     </ul>
-    <input type="text" [(ngModel)]="textbox"/>
+    <input type="text" [(ngModel)]="message"/>
     <a [routerLink]="['/chats']" class="btn btn-outline-info">BACK</a>    
     <button (click)="clickSend()" class="btn btn-outline-warning">SEND</button>
 </div>

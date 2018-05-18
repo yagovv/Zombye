@@ -10,11 +10,14 @@ import { environment } from "../../environments/environment";
   styleUrls: ["./zombie.component.scss"]
 })
 export class ZombieComponent implements OnInit {
+  sound: String = `${environment.BASEURL}/sounds/sound.mp3`;
   constructor(
     private router: Router,
     private sessionService: SessionService,
     private http: Http
-  ) {}
+  ) {
+
+  }
 
   ngOnInit() {}
   okey() {

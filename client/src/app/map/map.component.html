@@ -3,7 +3,7 @@
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" [styles]="mapStyles">
     <agm-marker *ngFor="let m of camps; let i = index"  [latitude]="m.location.coordinates[0]" [longitude]="m.location.coordinates[1]">
       <agm-info-window>
-        <strong>InfoWindow content</strong>
+        <h4>{{m.name}}</h4>
       </agm-info-window>
     </agm-marker>
   </agm-map>

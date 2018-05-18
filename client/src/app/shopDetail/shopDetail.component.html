@@ -5,8 +5,8 @@
   <ul class="shops-items-list">
     <li *ngFor="let item of items">
       <h5>{{item.name}}
-        <button (click)="buyItem(item)" *ngIf="shop.owner._id != sessionService.user._id && item.price <= sessionService.user.balance">🛒 BUY</button>
-        <button *ngIf="shop.owner._id != sessionService.user._id && item.price > sessionService.user.balance">🚫 Not Enough Balance</button>
+        <button (click)="buyItem(item)" *ngIf="shop.owner._id != sessionService.user._id && item.price <= sessionService.user.balance" style="color: greenyellow">🛒 BUY</button>
+        <button *ngIf="shop.owner._id != sessionService.user._id && item.price > sessionService.user.balance" style="color: red">🚫 Not Enough Balance</button>
         <a [routerLink]="['editItem', item._id]" *ngIf="shop.owner._id == sessionService.user._id">Edit</a>
       </h5>
       <h4>{{item.price}} 🧠</h4>

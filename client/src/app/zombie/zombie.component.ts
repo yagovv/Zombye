@@ -15,9 +15,7 @@ export class ZombieComponent implements OnInit {
     private router: Router,
     private sessionService: SessionService,
     private http: Http
-  ) {
-
-  }
+  ) {}
 
   ngOnInit() {}
   okey() {
